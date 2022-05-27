@@ -2,9 +2,10 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
 type Data = {
-  name: string;
+  data?: Record<string, unknown>[];
 };
 
-export default function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
-  res.status(200).json({ name: "John Doe" });
+export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
+  const data = await prisma?.user.findMany();
+  res.status(200).json({ data: data ? data : [] });
 }
