@@ -6,6 +6,5 @@ type Data = {
 };
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
-  const data = await prisma?.user.findMany();
-  res.status(200).json({ data: data ? data : [] });
+  res.status(200).json({ data: req.body });
 }
