@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import ActionButton from "../ui/ActionButton";
 
 const Home: NextPage = () => {
   return (
@@ -11,10 +12,11 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <h1>
+        <h1 className="font-extrabold text-3xl">
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
+        <ActionButton text="test" variant="link" href="/test" />
         <p>
           Get started by editing <code>pages/index.tsx</code>
         </p>
